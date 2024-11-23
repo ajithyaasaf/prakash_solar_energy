@@ -1,8 +1,8 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React from "react"
+import { Row, Col } from "react-bootstrap"
 
 // componets
-import StatisticsWidget from "../../../components/StatisticsWidget";
+import StatisticsWidget from "../../../components/StatisticsWidget"
 
 const Statistics = () => {
   return (
@@ -49,7 +49,7 @@ const Statistics = () => {
         </Col>
       </Row>
     </>
-  );
-};
+  )
+}
 
-export default Statistics;
+export default Statistics

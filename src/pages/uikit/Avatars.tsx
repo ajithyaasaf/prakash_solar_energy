@@ -1,20 +1,20 @@
-import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
-import classNames from "classnames";
+import React from "react"
+import { Row, Col, Card } from "react-bootstrap"
+import classNames from "classnames"
 
 // components
-import PageTitle from "../../components/PageTitle";
+import PageTitle from "../../components/PageTitle"
 
-import avatar2 from "../../assets/images/users/user-2.jpg";
-import avatar3 from "../../assets/images/users/user-3.jpg";
-import avatar4 from "../../assets/images/users/user-4.jpg";
-import avatar5 from "../../assets/images/users/user-5.jpg";
-import avatar6 from "../../assets/images/users/user-6.jpg";
-import avatar7 from "../../assets/images/users/user-7.jpg";
-import avatar8 from "../../assets/images/users/user-8.jpg";
+import avatar2 from "../../assets/images/users/user-2.jpg"
+import avatar3 from "../../assets/images/users/user-3.jpg"
+import avatar4 from "../../assets/images/users/user-4.jpg"
+import avatar5 from "../../assets/images/users/user-5.jpg"
+import avatar6 from "../../assets/images/users/user-6.jpg"
+import avatar7 from "../../assets/images/users/user-7.jpg"
+import avatar8 from "../../assets/images/users/user-8.jpg"
 
-import img1 from "../../assets/images/small/img-2.jpg";
-import img2 from "../../assets/images/small/img-3.jpg";
+import img1 from "../../assets/images/small/img-2.jpg"
+import img2 from "../../assets/images/small/img-3.jpg"
 
 const RoundedCircle = ({ size }: { size: string }) => {
   return (
@@ -34,8 +34,8 @@ const RoundedCircle = ({ size }: { size: string }) => {
         </p>
       </Col>
     </>
-  );
-};
+  )
+}
 
 const Avatars = () => {
   return (
@@ -127,7 +127,7 @@ const Avatars = () => {
 
               <Row>
                 {["md", "lg", "xl"].map((size, index) => {
-                  return <RoundedCircle key={index} size={size} />;
+                  return <RoundedCircle key={index} size={size} />
                 })}
               </Row>
             </Card.Body>
@@ -325,7 +325,7 @@ const Avatars = () => {
         </Col>
       </Row>
     </>
-  );
-};
+  )
+}
 
-export default Avatars;
+export default Avatars

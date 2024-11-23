@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import React, { useState } from "react"
+import { Row, Col } from "react-bootstrap"
 
 // components
-import HyperDatepicker from "../../../components/Datepicker";
+import HyperDatepicker from "../../../components/Datepicker"
 
-import Statistics from "./Statistics";
-import RevenueChart from "./RevenueChart";
-import SalesAnalyticsChart from "./SalesAnalyticsChart";
-import UsersBalances from "./UsersBalances";
-import RevenueHistory from "./RevenueHistory";
+import Statistics from "./Statistics"
+import RevenueChart from "./RevenueChart"
+import SalesAnalyticsChart from "./SalesAnalyticsChart"
+import UsersBalances from "./UsersBalances"
+import RevenueHistory from "./RevenueHistory"
 
-import { balances, revenueHistory } from "./data";
+import { balances, revenueHistory } from "./data"
 
 const Dashboard1 = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
   /*
    * handle date change
    */
   const onDateChange = (date: Date) => {
     if (date) {
-      setSelectedDate(date);
+      setSelectedDate(date)
     }
-  };
+  }
 
   return (
     <>
@@ -36,7 +36,7 @@ const Dashboard1 = () => {
                     value={selectedDate}
                     inputClass="border"
                     onChange={(date) => {
-                      onDateChange(date);
+                      onDateChange(date)
                     }}
                   />
                 </div>
@@ -56,24 +56,24 @@ const Dashboard1 = () => {
       <Statistics />
 
       <Row>
-        <Col lg={4}>
+        {/* <Col lg={4}>
           <RevenueChart />
-        </Col>
+        </Col> */}
         <Col lg={8}>
           <SalesAnalyticsChart />
         </Col>
       </Row>
 
-      <Row>
+      {/* <Row>
         <Col xl={6}>
           <UsersBalances balances={balances} />
         </Col>
         <Col xl={6}>
           <RevenueHistory revenueHistory={revenueHistory} />
         </Col>
-      </Row>
+      </Row> */}
     </>
-  );
-};
+  )
+}
 
-export default Dashboard1;
+export default Dashboard1

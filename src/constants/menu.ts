@@ -1,16 +1,16 @@
 export interface MenuItemTypes {
-  key: string;
-  label: string;
-  isTitle?: boolean;
-  icon?: string;
-  url?: string;
+  key: string
+  label: string
+  isTitle?: boolean
+  icon?: string
+  url?: string
   badge?: {
-    variant: string;
-    text: string;
-  };
-  parentKey?: string;
-  target?: string;
-  children?: MenuItemTypes[];
+    variant: string
+    text: string
+  }
+  parentKey?: string
+  target?: string
+  children?: MenuItemTypes[]
 }
 
 const MENU_ITEMS: MenuItemTypes[] = [
@@ -20,7 +20,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
     label: "Dashboards",
     isTitle: false,
     icon: "airplay",
-    badge: { variant: "success", text: "4" },
+    badge: { variant: "success", text: "" },
     children: [
       {
         key: "ds-dashboard-1",
@@ -28,7 +28,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
         url: "/dashboard-1",
         parentKey: "dashboards",
       },
-      {
+      /* {
         key: "ds-dashboard-2",
         label: "Dashboard 2",
         url: "/dashboard-2",
@@ -45,7 +45,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
         label: "Dashboard 4",
         url: "/dashboard-4",
         parentKey: "dashboards",
-      },
+      }, */
     ],
   },
   { key: "apps", label: "Apps", isTitle: true },
@@ -169,7 +169,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
-  {
+  /* {
     key: "apps-email",
     label: "Email",
     isTitle: false,
@@ -235,8 +235,8 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "apps-projects",
       },
     ],
-  },
-  {
+  }, */
+  /* {
     key: "apps-tasks",
     label: "Tasks",
     isTitle: false,
@@ -261,7 +261,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "apps-tasks",
       },
     ],
-  },
+  }, */
   {
     key: "apps-contacts",
     label: "Contacts",
@@ -282,7 +282,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
-  {
+  /* {
     key: "apps-tickets",
     label: "Tickets",
     isTitle: false,
@@ -301,8 +301,8 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "apps-tickets",
       },
     ],
-  },
-  {
+  }, */
+  /*   {
     key: "apps-file-manager",
     label: "File Manager",
     isTitle: false,
@@ -409,8 +409,8 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "extra-pages",
       },
     ],
-  },
-  { key: "components", label: "Components", isTitle: true },
+  }, */
+  /* { key: "components", label: "Components", isTitle: true },
   {
     key: "base-ui",
     label: "Base UI",
@@ -544,8 +544,8 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "base-ui",
       },
     ],
-  },
-  {
+  }, */
+  /* {
     key: "extended-ui",
     label: "Extended UI",
     isTitle: false,
@@ -810,8 +810,8 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "menu-levels",
       },
     ],
-  },
-];
+  }, */
+]
 
 const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
   {
@@ -1047,7 +1047,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
           },
         ],
       },
-      {
+      /* {
         key: "apps-tasks",
         label: "Tasks",
         isTitle: false,
@@ -1073,7 +1073,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
             parentKey: "apps-tasks",
           },
         ],
-      },
+      }, */
       {
         key: "apps-contacts",
         label: "Contacts",
@@ -1657,7 +1657,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
-];
+]
 
 const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
   {
@@ -1893,7 +1893,7 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
           },
         ],
       },
-      {
+      /* {
         key: "apps-tasks",
         label: "Tasks",
         isTitle: false,
@@ -1919,7 +1919,7 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
             parentKey: "apps-tasks",
           },
         ],
-      },
+      }, */
       {
         key: "apps-contacts",
         label: "Contacts",
@@ -2502,6 +2502,6 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
   //     icon: 'gift',
   //     url: '/ui/widgets',
   // },
-];
+]
 
-export { MENU_ITEMS, TWO_COl_MENU_ITEMS, HORIZONTAL_MENU_ITEMS };
+export { MENU_ITEMS, TWO_COl_MENU_ITEMS, HORIZONTAL_MENU_ITEMS }

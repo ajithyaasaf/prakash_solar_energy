@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Collapse } from "react-bootstrap";
-import classNames from "classnames";
-import FeatherIcon from "feather-icons-react";
+import React, { useEffect, useRef, useState, useCallback } from "react"
+import { Link, useLocation } from "react-router-dom"
+import { Collapse } from "react-bootstrap"
+import classNames from "classnames"
+import FeatherIcon from "feather-icons-react"
 
 //helpers
-import { findAllParent, findMenuItem } from "../helpers/menu";
+import { findAllParent, findMenuItem } from "../helpers/menu"
 
 // constants
-import { MenuItemTypes } from "../constants/menu";
+import { MenuItemTypes } from "../constants/menu"
 
 interface SubMenus {
-  item: MenuItemTypes;
-  linkClassName?: string;
-  subMenuClassNames?: string;
-  activeMenuItems?: Array<string>;
-  toggleMenu?: (item: any, status: boolean) => void;
-  className?: string;
+  item: MenuItemTypes
+  linkClassName?: string
+  subMenuClassNames?: string
+  activeMenuItems?: Array<string>
+  toggleMenu?: (item: any, status: boolean) => void
+  className?: string
 }
 
 const MenuItemWithChildren = ({
@@ -26,21 +26,19 @@ const MenuItemWithChildren = ({
   activeMenuItems,
   toggleMenu,
 }: SubMenus) => {
-  const [open, setOpen] = useState<boolean>(
-    activeMenuItems!.includes(item.key)
-  );
+  const [open, setOpen] = useState<boolean>(activeMenuItems!.includes(item.key))
   // ;
 
   useEffect(() => {
-    setOpen(activeMenuItems!.includes(item.key));
-  }, [activeMenuItems, item]);
+    setOpen(activeMenuItems!.includes(item.key))
+  }, [activeMenuItems, item])
 
   const toggleMenuItem = () => {
-    const status = !open;
-    setOpen(status);
-    if (toggleMenu) toggleMenu(item, status);
-    return false;
-  };
+    const status = !open
+    setOpen(status)
+    if (toggleMenu) toggleMenu(item, status)
+    return false
+  }
 
   return (
     <li className={classNames("menu-item", { "menuitem-active": open })}>
@@ -107,22 +105,22 @@ const MenuItemWithChildren = ({
                     </>
                   )}
                 </React.Fragment>
-              );
+              )
             })}
           </ul>
         </div>
       </Collapse>
     </li>
-  );
-};
+  )
+}
 
 const MenuItem = ({ item, className, linkClassName }: SubMenus) => {
   return (
     <li className={classNames("menu-item", className)}>
       <MenuItemLink item={item} className={linkClassName} />
     </li>
-  );
-};
+  )
+}
 
 const MenuItemLink = ({ item, className }: SubMenus) => {
   return (
@@ -144,22 +142,22 @@ const MenuItemLink = ({ item, className }: SubMenus) => {
         </span>
       )}
     </Link>
-  );
-};
+  )
+}
 
 /**
  * Renders the application menu
  */
 interface AppMenuProps {
-  menuItems: MenuItemTypes[];
+  menuItems: MenuItemTypes[]
 }
 
 const AppMenu = ({ menuItems }: AppMenuProps) => {
-  let location = useLocation();
+  let location = useLocation()
 
-  const menuRef: any = useRef(null);
+  const menuRef: any = useRef(null)
 
-  const [activeMenuItems, setActiveMenuItems] = useState<Array<string>>([]);
+  const [activeMenuItems, setActiveMenuItems] = useState<Array<string>>([])
 
   /*
    * toggle the menus
@@ -169,42 +167,48 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
       setActiveMenuItems([
         menuItem["key"],
         ...findAllParent(menuItems, menuItem),
-      ]);
-  };
+      ])
+  }
 
   /**
    * activate the menuitems
    */
   const activeMenu = useCallback(() => {
-    const div = document.getElementById("main-side-menu");
-    let matchingMenuItem = null;
+    const div = document.getElementById("main-side-menu")
+    let matchingMenuItem = null
     if (div) {
-      let items: any = div.getElementsByClassName("side-nav-link-ref");
+      let items: any = div.getElementsByClassName("side-nav-link-ref")
       for (let i = 0; i < items.length; ++i) {
-        let trimmedURL = location?.pathname?.replaceAll(process.env.PUBLIC_URL, "");
-        if (trimmedURL === items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")) {
-          matchingMenuItem = items[i];
-          break;
+        let trimmedURL = location?.pathname?.replaceAll(
+          process.env.PUBLIC_URL,
+          ""
+        )
+        if (
+          trimmedURL ===
+          items[i]?.pathname?.replaceAll(process.env.PUBLIC_URL, "")
+        ) {
+          matchingMenuItem = items[i]
+          break
         }
       }
 
       if (matchingMenuItem) {
-        const mid = matchingMenuItem.getAttribute("data-menu-key");
-        const activeMt = findMenuItem(menuItems, mid);
+        const mid = matchingMenuItem.getAttribute("data-menu-key")
+        const activeMt = findMenuItem(menuItems, mid)
         if (activeMt) {
           setActiveMenuItems([
             activeMt["key"],
             ...findAllParent(menuItems, activeMt),
-          ]);
+          ])
         }
       }
     }
-  }, [location, menuItems]);
+  }, [location, menuItems])
 
   useEffect(() => {
-    activeMenu();
+    activeMenu()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <>
@@ -245,11 +249,11 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
                 </>
               )}
             </React.Fragment>
-          );
+          )
         })}
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default AppMenu;
+export default AppMenu

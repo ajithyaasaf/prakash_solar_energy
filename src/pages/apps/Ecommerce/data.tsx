@@ -1,69 +1,69 @@
-import product1 from "../../../assets/images/products/product-1.png";
-import product2 from "../../../assets/images/products/product-2.png";
-import product3 from "../../../assets/images/products/product-3.png";
-import product4 from "../../../assets/images/products/product-4.png";
-import product5 from "../../../assets/images/products/product-5.png";
-import product6 from "../../../assets/images/products/product-6.png";
-import product7 from "../../../assets/images/products/product-7.png";
-import product8 from "../../../assets/images/products/product-8.png";
+import product1 from "../../../assets/images/products/product-1.png"
+import product2 from "../../../assets/images/products/product-2.png"
+import product3 from "../../../assets/images/products/product-3.png"
+import product4 from "../../../assets/images/products/product-4.png"
+import product5 from "../../../assets/images/products/product-5.png"
+import product6 from "../../../assets/images/products/product-6.png"
+import product7 from "../../../assets/images/products/product-7.png"
+import product8 from "../../../assets/images/products/product-8.png"
 
 export interface ProductItemTypes {
-  id: number;
-  name: string;
-  image: string;
-  rating: number;
-  price: number;
-  quantity: number;
-  status: boolean;
+  id: number
+  name: string
+  image: string
+  rating: number
+  price: number
+  quantity: number
+  status: boolean
 }
 
 export interface OrdersItemTypes {
-  id: number;
-  product_img: Array<string>;
-  order_id: string;
-  order_date: string;
-  order_time: string;
-  payment_status: string;
-  total: string;
-  payment_method: string;
-  order_status: string;
+  id: number
+  product_img: Array<string>
+  order_id: string
+  order_date: string
+  order_time: string
+  payment_status: string
+  total: string
+  payment_method: string
+  order_status: string
 }
 
 interface CustomersItemTypes {
-  id: number;
-  name: string;
-  phone: string;
-  balance: string;
-  orders: number;
+  id: number
+  name: string
+  phone: string
+  balance: string
+  orders: number
   last_order: {
-    date: string;
-    time: string;
-  };
-  avatar: string;
-  status: string;
+    date: string
+    time: string
+  }
+  avatar: string
+  status: string
 }
 
 interface SellersItemTypes {
-  id: number;
-  name: string;
-  store: string;
-  ratings: number;
-  products: number;
-  balance: string;
-  created_on: string;
-  revenue: string;
-  image: string;
+  id: number
+  name: string
+  store: string
+  ratings: number
+  products: number
+  balance: string
+  created_on: string
+  revenue: string
+  image: string
 }
 
 export interface CartItemTypes {
-  id: number;
-  image: string;
-  name: string;
-  size: string;
-  color: string;
-  price: number;
-  qty: number;
-  total: number;
+  id: number
+  image: string
+  name: string
+  size: string
+  color: string
+  price: number
+  qty: number
+  total: number
 }
 
 const products: ProductItemTypes[] = [
@@ -139,7 +139,215 @@ const products: ProductItemTypes[] = [
     quantity: 128,
     status: true,
   },
-];
+  {
+    id: 9,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 10,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 11,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 12,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 13,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 14,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 15,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 16,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 17,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 18,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 19,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+
+  {
+    id: 20,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 21,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 22,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 23,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 24,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 25,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 26,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 27,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 28,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 29,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 30,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+  {
+    id: 31,
+    name: "Roadster Long Sleeves T-shirt",
+    image: product8,
+    rating: 1,
+    price: 29,
+    quantity: 128,
+    status: true,
+  },
+]
 
 const orders: OrdersItemTypes[] = [
   {
@@ -1242,7 +1450,7 @@ const orders: OrdersItemTypes[] = [
     payment_method: "Credit Card",
     order_status: "Cancelled",
   },
-];
+]
 
 const customers: CustomersItemTypes[] = [
   {
@@ -1268,7 +1476,8 @@ const customers: CustomersItemTypes[] = [
       date: "August 04 2019",
       time: "08:18 AM",
     },
-    avatar: "https://robohash.org/voluptatemeligendisint.png?size=60x60&set=set1",
+    avatar:
+      "https://robohash.org/voluptatemeligendisint.png?size=60x60&set=set1",
     status: "Active",
   },
   {
@@ -1398,10 +1607,11 @@ const customers: CustomersItemTypes[] = [
       date: "April 21 2019",
       time: "07:22 AM",
     },
-    avatar:"https://robohash.org/cumvoluptatibusreprehenderit.png?size=60x60&set=set1",
+    avatar:
+      "https://robohash.org/cumvoluptatibusreprehenderit.png?size=60x60&set=set1",
     status: "Blocked",
   },
-];
+]
 
 const sellers: SellersItemTypes[] = [
   {
@@ -2537,7 +2747,7 @@ const sellers: SellersItemTypes[] = [
     image:
       "https://robohash.org/evenietquaeconsequuntur.png?size=100x100&set=set1",
   },
-];
+]
 
 const cartItems: CartItemTypes[] = [
   {
@@ -2580,6 +2790,6 @@ const cartItems: CartItemTypes[] = [
     qty: 1,
     total: 129.99,
   },
-];
+]
 
-export { products, orders, customers, sellers, cartItems };
+export { products, orders, customers, sellers, cartItems }

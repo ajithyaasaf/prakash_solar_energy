@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
-import classNames from "classnames";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import { Dropdown } from "react-bootstrap"
+import classNames from "classnames"
 
 // utils
-import { splitArray } from "../../utils/";
+import { splitArray } from "../../utils/"
 
 // apps icon
-import slackIcon from "./icons/slack.png";
-import bitbucketIcon from "./icons/bitbucket.png";
-import dribbbleIcon from "./icons/dribbble.png";
-import dropboxIcon from "./icons/dropbox.png";
-import githubIcon from "./icons/github.png";
-import gSuiteIcon from "./icons/g-suite.png";
+import slackIcon from "./icons/slack.png"
+import bitbucketIcon from "./icons/bitbucket.png"
+import dribbbleIcon from "./icons/dribbble.png"
+import dropboxIcon from "./icons/dropbox.png"
+import githubIcon from "./icons/github.png"
+import gSuiteIcon from "./icons/g-suite.png"
 
 // get the apps
 const Apps = [
@@ -46,21 +46,21 @@ const Apps = [
     icon: gSuiteIcon,
     redirectTo: "#",
   },
-];
+]
 
 const AppsDropdown = () => {
-  const apps = Apps || [];
-  const chunk_size = 3;
-  const appsChunks = splitArray(apps, chunk_size);
+  const apps = Apps || []
+  const chunk_size = 3
+  const appsChunks = splitArray(apps, chunk_size)
 
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
 
   /*
    * toggle apps-dropdown
    */
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+    setDropdownOpen(!dropdownOpen)
+  }
 
   return (
     <Dropdown show={dropdownOpen} onToggle={toggleDropdown}>
@@ -92,7 +92,7 @@ const AppsDropdown = () => {
         </div>
       </Dropdown.Menu>
     </Dropdown>
-  );
-};
+  )
+}
 
-export default AppsDropdown;
+export default AppsDropdown

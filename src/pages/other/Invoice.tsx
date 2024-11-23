@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import React, { useState } from "react"
+import { Row, Col, Card } from "react-bootstrap"
 
 // components
-import PageTitle from "../../components/PageTitle";
+import PageTitle from "../../components/PageTitle"
 
-import logoDark from "../../assets/images/logo-dark.png";
-import logoLight from "../../assets/images/logo-light.png";
+import logoDark from "../../assets/images/logo-dark.png"
+import logoLight from "../../assets/images/logo-light.png"
 
 interface Address {
-  line_1: string;
-  line_2: string;
-  city: string;
-  state: string;
-  zip: number;
-  phone: string;
+  line_1: string
+  line_2: string
+  city: string
+  state: string
+  zip: number
+  phone: string
 }
 
 interface Items {
-  id: number;
-  name: string;
-  description: string;
-  hour: number;
-  hourRate: string;
-  total: string;
+  id: number
+  name: string
+  description: string
+  hour: number
+  hourRate: string
+  total: string
 }
 
 // invoice component
 const Invoice = () => {
-  const [customer] = useState<string>("Stanley Jones");
+  const [customer] = useState<string>("Stanley Jones")
   const [notes] = useState<string>(
     "Thanks a lot because you keep purchasing our products. Our company promises to provide high quality products for you as well as outstanding customer service for every transaction."
-  );
-  const [order_date] = useState<string>("Jan 17, 2016");
-  const [order_status] = useState<string>("Unpaid");
-  const [order_no] = useState<string>("000028");
+  )
+  const [order_date] = useState<string>("Jan 17, 2016")
+  const [order_status] = useState<string>("Unpaid")
+  const [order_no] = useState<string>("000028")
   const [billing_address] = useState<Address>({
     line_1: "Stanley Jones",
     line_2: "795 Folsom Ave, Suite 600",
@@ -41,7 +41,7 @@ const Invoice = () => {
     state: "CA",
     zip: 94107,
     phone: "(123) 456-7890",
-  });
+  })
   const [shipping_address] = useState<Address>({
     line_1: "Stanley Jones",
     line_2: "795 Folsom Ave, Suite 600",
@@ -49,7 +49,7 @@ const Invoice = () => {
     state: "CA",
     zip: 94107,
     phone: "(123) 456-7890",
-  });
+  })
   const [items] = useState<Items[]>([
     {
       id: 1,
@@ -67,16 +67,16 @@ const Invoice = () => {
       hourRate: "$35",
       total: "$3937.50",
     },
-  ]);
-  const [sub_total] = useState<string>("$4597.50");
-  const [vat] = useState<string>("$459.75");
-  const [total] = useState<string>("$4137.75");
+  ])
+  const [sub_total] = useState<string>("$4597.50")
+  const [vat] = useState<string>("$459.75")
+  const [total] = useState<string>("$4137.75")
 
   return (
     <React.Fragment>
       <PageTitle
         breadCrumbItems={[
-          { label: "Extra Pages", path: "/pages/invoice" },
+          // { label: "Extra Pages", path: "/pages/invoice" },
           { label: "Invoice", path: "/pages/invoice", active: true },
         ]}
         title={"Invoice"}
@@ -200,7 +200,7 @@ const Invoice = () => {
                               <td>{item.hourRate}</td>
                               <td className="text-end">{item.total}</td>
                             </tr>
-                          );
+                          )
                         })}
                       </tbody>
                     </table>
@@ -246,7 +246,7 @@ const Invoice = () => {
                   <button
                     className="btn btn-primary waves-effect waves-light me-1"
                     onClick={(e: any) => {
-                      window.print();
+                      window.print()
                     }}
                   >
                     <i className="mdi mdi-printer me-1"></i> Print
@@ -261,7 +261,7 @@ const Invoice = () => {
         </Col>
       </Row>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Invoice;
+export default Invoice

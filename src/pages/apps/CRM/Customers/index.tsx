@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Row, Col, Card, Button } from "react-bootstrap";
-import classNames from "classnames";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import { Row, Col, Card, Button } from "react-bootstrap"
+import classNames from "classnames"
 
 // components
-import PageTitle from "../../../../components/PageTitle";
-import Table from "../../../../components/Table";
+import PageTitle from "../../../../components/PageTitle"
+import Table from "../../../../components/Table"
 
-import AddCustomer from "./AddCustomer";
+import AddCustomer from "./AddCustomer"
 
 // dummy data
-import { customers } from "./data";
+import { customers } from "./data"
 
 /* name column render */
 const NameColumn = ({ row }: { row: any }) => {
@@ -21,8 +21,8 @@ const NameColumn = ({ row }: { row: any }) => {
         {row.original.name}
       </Link>
     </div>
-  );
-};
+  )
+}
 
 /* status column render */
 const StatusColumn = ({ row }: { row: any }) => {
@@ -37,8 +37,8 @@ const StatusColumn = ({ row }: { row: any }) => {
         {row.original.status}
       </span>
     </React.Fragment>
-  );
-};
+  )
+}
 
 /* action column render */
 const ActionColumn = () => {
@@ -57,8 +57,8 @@ const ActionColumn = () => {
         <i className="mdi mdi-delete"></i>
       </Link>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const columns = [
   {
@@ -101,23 +101,23 @@ const columns = [
     classes: "table-action",
     Cell: ActionColumn,
   },
-];
+]
 
 // main component
 const Customers = () => {
   /*
    *   modal handeling
    */
-  const [show, setShow] = useState<boolean>(false);
-  const onCloseModal = () => setShow(false);
-  const onOpenModal = () => setShow(true);
+  const [show, setShow] = useState<boolean>(false)
+  const onCloseModal = () => setShow(false)
+  const onOpenModal = () => setShow(true)
 
   /*
     handle form submission
     */
   const onSubmit = () => {
-    onCloseModal();
-  };
+    onCloseModal()
+  }
 
   return (
     <React.Fragment>
@@ -174,7 +174,7 @@ const Customers = () => {
       {/* add customer modal */}
       <AddCustomer show={show} onHide={onCloseModal} onSubmit={onSubmit} />
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Customers;
+export default Customers

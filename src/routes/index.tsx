@@ -1,207 +1,201 @@
-import React from "react";
-import { Route, Navigate, RouteProps } from "react-router-dom";
+import React from "react"
+import { Route, Navigate, RouteProps } from "react-router-dom"
 
 // components
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute"
 // import Root from './Root';
 
 // lazy load all the views
 
 // auth
-const Login = React.lazy(() => import("../pages/auth/Login"));
-const Logout = React.lazy(() => import("../pages/auth/Logout"));
-const Confirm = React.lazy(() => import("../pages/auth/Confirm"));
-const ForgetPassword = React.lazy(() => import("../pages/auth/ForgetPassword"));
-const Register = React.lazy(() => import("../pages/auth/Register"));
-const SignInSignUp = React.lazy(() => import("../pages/auth/SignInSignUp"));
-const LockScreen = React.lazy(() => import("../pages/auth/LockScreen"));
+const Login = React.lazy(() => import("../pages/auth/Login"))
+const Logout = React.lazy(() => import("../pages/auth/Logout"))
+const Confirm = React.lazy(() => import("../pages/auth/Confirm"))
+const ForgetPassword = React.lazy(() => import("../pages/auth/ForgetPassword"))
+const Register = React.lazy(() => import("../pages/auth/Register"))
+const SignInSignUp = React.lazy(() => import("../pages/auth/SignInSignUp"))
+const LockScreen = React.lazy(() => import("../pages/auth/LockScreen"))
 
 // auth2
-const Login2 = React.lazy(() => import("../pages/auth2/Login2"));
-const Logout2 = React.lazy(() => import("../pages/auth2/Logout2"));
-const Register2 = React.lazy(() => import("../pages/auth2/Register2"));
-const Confirm2 = React.lazy(() => import("../pages/auth2/Confirm2"));
+const Login2 = React.lazy(() => import("../pages/auth2/Login2"))
+const Logout2 = React.lazy(() => import("../pages/auth2/Logout2"))
+const Register2 = React.lazy(() => import("../pages/auth2/Register2"))
+const Confirm2 = React.lazy(() => import("../pages/auth2/Confirm2"))
 const ForgetPassword2 = React.lazy(
   () => import("../pages/auth2/ForgetPassword2")
-);
-const LockScreen2 = React.lazy(() => import("../pages/auth2/LockScreen2"));
-const SignInSignUp2 = React.lazy(() => import("../pages/auth2/SignInSignUp2"));
+)
+const LockScreen2 = React.lazy(() => import("../pages/auth2/LockScreen2"))
+const SignInSignUp2 = React.lazy(() => import("../pages/auth2/SignInSignUp2"))
 
 // landing
-const Landing = React.lazy(() => import("../pages/landing/"));
+const Landing = React.lazy(() => import("../pages/landing/"))
 
 // dashboard
-const Dashboard1 = React.lazy(() => import("../pages/dashboard/Dashboard1/"));
-const Dashboard2 = React.lazy(() => import("../pages/dashboard/Dashboard2/"));
-const Dashboard3 = React.lazy(() => import("../pages/dashboard/Dashboard3/"));
-const Dashboard4 = React.lazy(() => import("../pages/dashboard/Dashboard4/"));
+const Dashboard1 = React.lazy(() => import("../pages/dashboard/Dashboard1/"))
+const Dashboard2 = React.lazy(() => import("../pages/dashboard/Dashboard2/"))
+const Dashboard3 = React.lazy(() => import("../pages/dashboard/Dashboard3/"))
+const Dashboard4 = React.lazy(() => import("../pages/dashboard/Dashboard4/"))
 
 // apps
-const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"));
-const Projects = React.lazy(() => import("../pages/apps/Projects/"));
-const ProjectDetail = React.lazy(
-  () => import("../pages/apps/Projects/Detail/")
-);
+const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"))
+const Projects = React.lazy(() => import("../pages/apps/Projects/"))
+const ProjectDetail = React.lazy(() => import("../pages/apps/Projects/Detail/"))
 const ProjectForm = React.lazy(
   () => import("../pages/apps/Projects/ProjectForm")
-);
+)
 // - chat
-const ChatApp = React.lazy(() => import("../pages/apps/Chat/"));
+const ChatApp = React.lazy(() => import("../pages/apps/Chat/"))
 // - ecommece pages
 const EcommerceDashboard = React.lazy(
   () => import("../pages/apps/Ecommerce/Dashboard/")
-);
+)
 const EcommerceProducts = React.lazy(
   () => import("../pages/apps/Ecommerce/Products")
-);
+)
 const ProductDetails = React.lazy(
   () => import("../pages/apps/Ecommerce/ProductDetails")
-);
+)
 const ProductEdit = React.lazy(
   () => import("../pages/apps/Ecommerce/ProductEdit")
-);
-const Customers = React.lazy(() => import("../pages/apps/Ecommerce/Customers"));
-const Orders = React.lazy(() => import("../pages/apps/Ecommerce/Orders"));
+)
+const Customers = React.lazy(() => import("../pages/apps/Ecommerce/Customers"))
+const Orders = React.lazy(() => import("../pages/apps/Ecommerce/Orders"))
 const OrderDetails = React.lazy(
   () => import("../pages/apps/Ecommerce/OrderDetails")
-);
-const Sellers = React.lazy(() => import("../pages/apps/Ecommerce/Sellers"));
-const Cart = React.lazy(() => import("../pages/apps/Ecommerce/Cart"));
-const Checkout = React.lazy(() => import("../pages/apps/Ecommerce/Checkout"));
+)
+const Sellers = React.lazy(() => import("../pages/apps/Ecommerce/Sellers"))
+const Cart = React.lazy(() => import("../pages/apps/Ecommerce/Cart"))
+const Checkout = React.lazy(() => import("../pages/apps/Ecommerce/Checkout"))
 // - crm pages
-const CRMDashboard = React.lazy(() => import("../pages/apps/CRM/Dashboard/"));
-const CRMContacts = React.lazy(() => import("../pages/apps/CRM/Contacts/"));
+const CRMDashboard = React.lazy(() => import("../pages/apps/CRM/Dashboard/"))
+const CRMContacts = React.lazy(() => import("../pages/apps/CRM/Contacts/"))
 const Opportunities = React.lazy(
   () => import("../pages/apps/CRM/Opportunities/")
-);
-const CRMLeads = React.lazy(() => import("../pages/apps/CRM/Leads/"));
-const CRMCustomers = React.lazy(() => import("../pages/apps/CRM/Customers/"));
+)
+const CRMLeads = React.lazy(() => import("../pages/apps/CRM/Leads/"))
+const CRMCustomers = React.lazy(() => import("../pages/apps/CRM/Customers/"))
 // - email
-const Inbox = React.lazy(() => import("../pages/apps/Email/Inbox"));
-const EmailDetail = React.lazy(() => import("../pages/apps/Email/Detail"));
-const EmailCompose = React.lazy(() => import("../pages/apps/Email/Compose"));
+const Inbox = React.lazy(() => import("../pages/apps/Email/Inbox"))
+const EmailDetail = React.lazy(() => import("../pages/apps/Email/Detail"))
+const EmailCompose = React.lazy(() => import("../pages/apps/Email/Compose"))
 // - social
-const SocialFeed = React.lazy(() => import("../pages/apps/SocialFeed/"));
+const SocialFeed = React.lazy(() => import("../pages/apps/SocialFeed/"))
 // - companies
-const Companies = React.lazy(() => import("../pages/apps/Companies/"));
+const Companies = React.lazy(() => import("../pages/apps/Companies/"))
 // - tasks
-const TaskList = React.lazy(() => import("../pages/apps/Tasks/List/"));
-const TaskDetails = React.lazy(() => import("../pages/apps/Tasks/Details"));
-const Kanban = React.lazy(() => import("../pages/apps/Tasks/Board/"));
+const TaskList = React.lazy(() => import("../pages/apps/Tasks/List/"))
+const TaskDetails = React.lazy(() => import("../pages/apps/Tasks/Details"))
+const Kanban = React.lazy(() => import("../pages/apps/Tasks/Board/"))
 // -contacts
-const ContactsList = React.lazy(() => import("../pages/apps/Contacts/List/"));
+const ContactsList = React.lazy(() => import("../pages/apps/Contacts/List/"))
 const ContactsProfile = React.lazy(
   () => import("../pages/apps/Contacts/Profile/")
-);
+)
 // -tickets
-const TicketsList = React.lazy(() => import("../pages/apps/Tickets/List/"));
+const TicketsList = React.lazy(() => import("../pages/apps/Tickets/List/"))
 const TicketsDetails = React.lazy(
   () => import("../pages/apps/Tickets/Details/")
-);
+)
 // - file
-const FileManager = React.lazy(() => import("../pages/apps/FileManager"));
+const FileManager = React.lazy(() => import("../pages/apps/FileManager"))
 
 // extra pages
-const Starter = React.lazy(() => import("../pages/other/Starter"));
-const Timeline = React.lazy(() => import("../pages/other/Timeline"));
-const Sitemap = React.lazy(() => import("../pages/other/Sitemap/"));
-const Error404 = React.lazy(() => import("../pages/error/Error404"));
-const Error404Two = React.lazy(() => import("../pages/error/Error404Two"));
-const Error404Alt = React.lazy(() => import("../pages/error/Error404Alt"));
-const Error500 = React.lazy(() => import("../pages/error/Error500"));
-const Error500Two = React.lazy(() => import("../pages/error/Error500Two"));
+const Starter = React.lazy(() => import("../pages/other/Starter"))
+const Timeline = React.lazy(() => import("../pages/other/Timeline"))
+const Sitemap = React.lazy(() => import("../pages/other/Sitemap/"))
+const Error404 = React.lazy(() => import("../pages/error/Error404"))
+const Error404Two = React.lazy(() => import("../pages/error/Error404Two"))
+const Error404Alt = React.lazy(() => import("../pages/error/Error404Alt"))
+const Error500 = React.lazy(() => import("../pages/error/Error500"))
+const Error500Two = React.lazy(() => import("../pages/error/Error500Two"))
 // - other
-const Invoice = React.lazy(() => import("../pages/other/Invoice"));
-const FAQ = React.lazy(() => import("../pages/other/FAQ"));
-const SearchResults = React.lazy(() => import("../pages/other/SearchResults/"));
-const Upcoming = React.lazy(() => import("../pages/other/Upcoming"));
-const Pricing = React.lazy(() => import("../pages/other/Pricing"));
-const Gallery = React.lazy(() => import("../pages/other/Gallery/"));
-const Maintenance = React.lazy(() => import("../pages/other/Maintenance"));
+const Invoice = React.lazy(() => import("../pages/other/Invoice"))
+const FAQ = React.lazy(() => import("../pages/other/FAQ"))
+const SearchResults = React.lazy(() => import("../pages/other/SearchResults/"))
+const Upcoming = React.lazy(() => import("../pages/other/Upcoming"))
+const Pricing = React.lazy(() => import("../pages/other/Pricing"))
+const Gallery = React.lazy(() => import("../pages/other/Gallery/"))
+const Maintenance = React.lazy(() => import("../pages/other/Maintenance"))
 
 // uikit
-const Buttons = React.lazy(() => import("../pages/uikit/Buttons"));
-const Avatars = React.lazy(() => import("../pages/uikit/Avatars"));
-const Cards = React.lazy(() => import("../pages/uikit/Cards"));
-const Portlets = React.lazy(() => import("../pages/uikit/Portlets"));
-const TabsAccordions = React.lazy(
-  () => import("../pages/uikit/TabsAccordions")
-);
-const Progress = React.lazy(() => import("../pages/uikit/Progress"));
-const Modals = React.lazy(() => import("../pages/uikit/Modals"));
-const Notifications = React.lazy(() => import("../pages/uikit/Notifications"));
-const Offcanvases = React.lazy(() => import("../pages/uikit/Offcanvas"));
-const Placeholders = React.lazy(() => import("../pages/uikit/Placeholders"));
-const Spinners = React.lazy(() => import("../pages/uikit/Spinners"));
-const Images = React.lazy(() => import("../pages/uikit/Images"));
-const Carousels = React.lazy(() => import("../pages/uikit/Carousel"));
-const ListGroups = React.lazy(() => import("../pages/uikit/ListGroups"));
-const EmbedVideo = React.lazy(() => import("../pages/uikit/EmbedVideo"));
-const Dropdowns = React.lazy(() => import("../pages/uikit/Dropdowns"));
-const Ribbons = React.lazy(() => import("../pages/uikit/Ribbons"));
+const Buttons = React.lazy(() => import("../pages/uikit/Buttons"))
+const Avatars = React.lazy(() => import("../pages/uikit/Avatars"))
+const Cards = React.lazy(() => import("../pages/uikit/Cards"))
+const Portlets = React.lazy(() => import("../pages/uikit/Portlets"))
+const TabsAccordions = React.lazy(() => import("../pages/uikit/TabsAccordions"))
+const Progress = React.lazy(() => import("../pages/uikit/Progress"))
+const Modals = React.lazy(() => import("../pages/uikit/Modals"))
+const Notifications = React.lazy(() => import("../pages/uikit/Notifications"))
+const Offcanvases = React.lazy(() => import("../pages/uikit/Offcanvas"))
+const Placeholders = React.lazy(() => import("../pages/uikit/Placeholders"))
+const Spinners = React.lazy(() => import("../pages/uikit/Spinners"))
+const Images = React.lazy(() => import("../pages/uikit/Images"))
+const Carousels = React.lazy(() => import("../pages/uikit/Carousel"))
+const ListGroups = React.lazy(() => import("../pages/uikit/ListGroups"))
+const EmbedVideo = React.lazy(() => import("../pages/uikit/EmbedVideo"))
+const Dropdowns = React.lazy(() => import("../pages/uikit/Dropdowns"))
+const Ribbons = React.lazy(() => import("../pages/uikit/Ribbons"))
 const TooltipsPopovers = React.lazy(
   () => import("../pages/uikit/TooltipsPopovers")
-);
-const GeneralUI = React.lazy(() => import("../pages/uikit/GeneralUI"));
-const Typography = React.lazy(() => import("../pages/uikit/Typography"));
-const Grid = React.lazy(() => import("../pages/uikit/Grid"));
-const NestableList = React.lazy(() => import("../pages/uikit/NestableList"));
-const DragDrop = React.lazy(() => import("../pages/uikit/DragDrop"));
-const RangeSliders = React.lazy(() => import("../pages/uikit/RangeSliders"));
-const Animation = React.lazy(() => import("../pages/uikit/Animation"));
-const TourPage = React.lazy(() => import("../pages/uikit/TourPage"));
-const SweetAlerts = React.lazy(() => import("../pages/uikit/SweetAlerts"));
-const LoadingButtons = React.lazy(
-  () => import("../pages/uikit/LoadingButtons")
-);
+)
+const GeneralUI = React.lazy(() => import("../pages/uikit/GeneralUI"))
+const Typography = React.lazy(() => import("../pages/uikit/Typography"))
+const Grid = React.lazy(() => import("../pages/uikit/Grid"))
+const NestableList = React.lazy(() => import("../pages/uikit/NestableList"))
+const DragDrop = React.lazy(() => import("../pages/uikit/DragDrop"))
+const RangeSliders = React.lazy(() => import("../pages/uikit/RangeSliders"))
+const Animation = React.lazy(() => import("../pages/uikit/Animation"))
+const TourPage = React.lazy(() => import("../pages/uikit/TourPage"))
+const SweetAlerts = React.lazy(() => import("../pages/uikit/SweetAlerts"))
+const LoadingButtons = React.lazy(() => import("../pages/uikit/LoadingButtons"))
 
 // widgets
-const Widgets = React.lazy(() => import("../pages/uikit/Widgets"));
+const Widgets = React.lazy(() => import("../pages/uikit/Widgets"))
 
 // icons
-const TwoToneIcons = React.lazy(() => import("../pages/icons/TwoToneIcons/"));
-const FeatherIcons = React.lazy(() => import("../pages/icons/FeatherIcons/"));
-const Dripicons = React.lazy(() => import("../pages/icons/Dripicons/"));
-const MDIIcons = React.lazy(() => import("../pages/icons/MDIIcons/"));
+const TwoToneIcons = React.lazy(() => import("../pages/icons/TwoToneIcons/"))
+const FeatherIcons = React.lazy(() => import("../pages/icons/FeatherIcons/"))
+const Dripicons = React.lazy(() => import("../pages/icons/Dripicons/"))
+const MDIIcons = React.lazy(() => import("../pages/icons/MDIIcons/"))
 const FontAwesomeIcons = React.lazy(
   () => import("../pages/icons/FontAwesomeIcons/")
-);
-const ThemifyIcons = React.lazy(() => import("../pages/icons/ThemifyIcons/"));
+)
+const ThemifyIcons = React.lazy(() => import("../pages/icons/ThemifyIcons/"))
 const SimpleLineIcons = React.lazy(
   () => import("../pages/icons/SimpleLineIcons/")
-);
-const WeatherIcons = React.lazy(() => import("../pages/icons/WeatherIcons/"));
+)
+const WeatherIcons = React.lazy(() => import("../pages/icons/WeatherIcons/"))
 
 // forms
-const BasicForms = React.lazy(() => import("../pages/forms/Basic"));
-const FormAdvanced = React.lazy(() => import("../pages/forms/Advanced"));
-const FormValidation = React.lazy(() => import("../pages/forms/Validation"));
-const FormWizard = React.lazy(() => import("../pages/forms/Wizard"));
-const FileUpload = React.lazy(() => import("../pages/forms/FileUpload"));
-const Editors = React.lazy(() => import("../pages/forms/Editors"));
+const BasicForms = React.lazy(() => import("../pages/forms/Basic"))
+const FormAdvanced = React.lazy(() => import("../pages/forms/Advanced"))
+const FormValidation = React.lazy(() => import("../pages/forms/Validation"))
+const FormWizard = React.lazy(() => import("../pages/forms/Wizard"))
+const FileUpload = React.lazy(() => import("../pages/forms/FileUpload"))
+const Editors = React.lazy(() => import("../pages/forms/Editors"))
 
 // tables
-const BasicTables = React.lazy(() => import("../pages/tables/Basic"));
-const AdvancedTables = React.lazy(() => import("../pages/tables/Advanced"));
+const BasicTables = React.lazy(() => import("../pages/tables/Basic"))
+const AdvancedTables = React.lazy(() => import("../pages/tables/Advanced"))
 
 // charts
-const ApexChart = React.lazy(() => import("../pages/charts/Apex"));
-const ChartJs = React.lazy(() => import("../pages/charts/ChartJs"));
+const ApexChart = React.lazy(() => import("../pages/charts/Apex"))
+const ChartJs = React.lazy(() => import("../pages/charts/ChartJs"))
 
 // maps
-const GoogleMaps = React.lazy(() => import("../pages/maps/GoogleMaps"));
-const VectorMaps = React.lazy(() => import("../pages/maps/VectorMaps"));
+const GoogleMaps = React.lazy(() => import("../pages/maps/GoogleMaps"))
+const VectorMaps = React.lazy(() => import("../pages/maps/VectorMaps"))
 
 export interface RoutesProps {
-  path: RouteProps["path"];
-  name?: string;
-  element?: RouteProps["element"];
-  route?: any;
-  exact?: boolean;
-  icon?: string;
-  header?: string;
-  roles?: string[];
-  children?: RoutesProps[];
+  path: RouteProps["path"]
+  name?: string
+  element?: RouteProps["element"]
+  route?: any
+  exact?: boolean
+  icon?: string
+  header?: string
+  roles?: string[]
+  children?: RoutesProps[]
 }
 
 // root routes
@@ -250,7 +244,7 @@ const dashboardRoutes: RoutesProps = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const calendarAppRoutes: RoutesProps = {
   path: "/apps/calendar",
@@ -260,7 +254,7 @@ const calendarAppRoutes: RoutesProps = {
   icon: "calendar",
   element: <CalendarApp />,
   header: "Apps",
-};
+}
 
 const chatAppRoutes = {
   path: "/apps/chat",
@@ -269,7 +263,7 @@ const chatAppRoutes = {
   roles: ["Admin"],
   icon: "message-square",
   element: <ChatApp />,
-};
+}
 
 const ecommerceAppRoutes = {
   path: "/apps/ecommerce",
@@ -339,7 +333,7 @@ const ecommerceAppRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const crmAppRoutes = {
   path: "/apps/crm",
@@ -379,7 +373,7 @@ const crmAppRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const emailAppRoutes = {
   path: "/apps/email",
@@ -407,7 +401,7 @@ const emailAppRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const socialAppRoutes = {
   path: "/apps/social-feed",
@@ -416,7 +410,7 @@ const socialAppRoutes = {
   roles: ["Admin"],
   icon: "rss",
   element: <SocialFeed />,
-};
+}
 
 const companiesAppRoutes = {
   path: "/apps/companies",
@@ -425,7 +419,7 @@ const companiesAppRoutes = {
   roles: ["Admin"],
   icon: "activity",
   element: <Companies />,
-};
+}
 
 const projectAppRoutes = {
   path: "/apps/projects",
@@ -454,7 +448,7 @@ const projectAppRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const taskAppRoutes = {
   path: "/apps/tasks",
@@ -482,7 +476,7 @@ const taskAppRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const contactsRoutes = {
   path: "/apps/contacts",
@@ -504,7 +498,7 @@ const contactsRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const ticketsRoutes = {
   path: "/apps/tickets",
@@ -526,7 +520,7 @@ const ticketsRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 const fileAppRoutes = {
   path: "/apps/file-manager",
@@ -535,7 +529,7 @@ const fileAppRoutes = {
   roles: ["Admin"],
   icon: "folder-plus",
   element: <FileManager />,
-};
+}
 
 const appRoutes = [
   calendarAppRoutes,
@@ -550,7 +544,7 @@ const appRoutes = [
   contactsRoutes,
   ticketsRoutes,
   fileAppRoutes,
-];
+]
 
 // pages
 const extrapagesRoutes = {
@@ -614,7 +608,7 @@ const extrapagesRoutes = {
       route: PrivateRoute,
     },
   ],
-};
+}
 
 // ui
 const uiRoutes = {
@@ -960,7 +954,7 @@ const uiRoutes = {
       ],
     },
   ],
-};
+}
 
 // auth
 const authRoutes: RoutesProps[] = [
@@ -1048,7 +1042,7 @@ const authRoutes: RoutesProps[] = [
     element: <LockScreen2 />,
     route: Route,
   },
-];
+]
 
 // public routes
 const otherPublicRoutes = [
@@ -1094,22 +1088,22 @@ const otherPublicRoutes = [
     element: <Upcoming />,
     route: Route,
   },
-];
+]
 
 // flatten the list of all nested routes
 const flattenRoutes = (routes: RoutesProps[]) => {
-  let flatRoutes: RoutesProps[] = [];
+  let flatRoutes: RoutesProps[] = []
 
-  routes = routes || [];
+  routes = routes || []
   routes.forEach((item: RoutesProps) => {
-    flatRoutes.push(item);
+    flatRoutes.push(item)
 
     if (typeof item.children !== "undefined") {
-      flatRoutes = [...flatRoutes, ...flattenRoutes(item.children)];
+      flatRoutes = [...flatRoutes, ...flattenRoutes(item.children)]
     }
-  });
-  return flatRoutes;
-};
+  })
+  return flatRoutes
+}
 
 // All routes
 const authProtectedRoutes = [
@@ -1117,14 +1111,14 @@ const authProtectedRoutes = [
   ...appRoutes,
   extrapagesRoutes,
   uiRoutes,
-];
-const publicRoutes = [...authRoutes, ...otherPublicRoutes];
+]
+const publicRoutes = [...authRoutes, ...otherPublicRoutes]
 
-const authProtectedFlattenRoutes = flattenRoutes([...authProtectedRoutes]);
-const publicProtectedFlattenRoutes = flattenRoutes([...publicRoutes]);
+const authProtectedFlattenRoutes = flattenRoutes([...authProtectedRoutes])
+const publicProtectedFlattenRoutes = flattenRoutes([...publicRoutes])
 export {
   publicRoutes,
   authProtectedRoutes,
   authProtectedFlattenRoutes,
   publicProtectedFlattenRoutes,
-};
+}

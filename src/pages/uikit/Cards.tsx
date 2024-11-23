@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 import {
   Row,
   Col,
@@ -8,26 +8,26 @@ import {
   ListGroup,
   Nav,
   Button,
-} from "react-bootstrap";
-import classNames from "classnames";
+} from "react-bootstrap"
+import classNames from "classnames"
 
 // components
-import PageTitle from "../../components/PageTitle";
+import PageTitle from "../../components/PageTitle"
 
-import cardImg from "../../assets/images/small/img-1.jpg";
-import cardImg2 from "../../assets/images/small/img-4.jpg";
-import cardImg3 from "../../assets/images/small/img-2.jpg";
-import cardImg4 from "../../assets/images/small/img-3.jpg";
-import cardImg5 from "../../assets/images/small/img-5.jpg";
-import cardImg6 from "../../assets/images/small/img-6.jpg";
-import cardImg7 from "../../assets/images/small/img-7.jpg";
+import cardImg from "../../assets/images/small/img-1.jpg"
+import cardImg2 from "../../assets/images/small/img-4.jpg"
+import cardImg3 from "../../assets/images/small/img-2.jpg"
+import cardImg4 from "../../assets/images/small/img-3.jpg"
+import cardImg5 from "../../assets/images/small/img-5.jpg"
+import cardImg6 from "../../assets/images/small/img-6.jpg"
+import cardImg7 from "../../assets/images/small/img-7.jpg"
 
 interface CardGroupDetailsTypes {
-  id: number;
-  image: string;
-  title: string;
-  text: string;
-  subtext: string;
+  id: number
+  image: string
+  title: string
+  text: string
+  subtext: string
 }
 
 const CardWithImage = () => {
@@ -46,8 +46,8 @@ const CardWithImage = () => {
         </Link>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithImage2 = () => {
   return (
@@ -73,8 +73,8 @@ const CardWithImage2 = () => {
         </Card.Link>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithImage3 = () => {
   return (
@@ -91,8 +91,8 @@ const CardWithImage3 = () => {
         </Link>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithTitleAndImage = () => {
   return (
@@ -117,8 +117,8 @@ const CardWithTitleAndImage = () => {
         </Card.Link>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithSpecialTitle = () => {
   return (
@@ -131,8 +131,8 @@ const CardWithSpecialTitle = () => {
         Go somewhere
       </Link>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithHeader = () => {
   return (
@@ -148,8 +148,8 @@ const CardWithHeader = () => {
         </Link>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithHeaderAndQuote = () => {
   return (
@@ -167,8 +167,8 @@ const CardWithHeaderAndQuote = () => {
         </blockquote>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithHeaderAndFooter = () => {
   return (
@@ -182,15 +182,15 @@ const CardWithHeaderAndFooter = () => {
       </Card.Body>
       <Card.Footer className="text-muted">2 days ago</Card.Footer>
     </Card>
-  );
-};
+  )
+}
 
 const CardWithImageCaps = ({
   position,
   image,
 }: {
-  position: string;
-  image: string;
+  position: string
+  image: string
 }) => {
   return (
     <>
@@ -209,8 +209,8 @@ const CardWithImageCaps = ({
         {position === "bottom" && <Card.Img variant={position} src={image} />}
       </Card>
     </>
-  );
-};
+  )
+}
 
 const CardWithImageOverlay = () => {
   return (
@@ -229,8 +229,8 @@ const CardWithImageOverlay = () => {
         </Card.ImgOverlay>
       </Card>
     </>
-  );
-};
+  )
+}
 
 const ColoredCards = () => {
   const colors = [
@@ -242,7 +242,7 @@ const ColoredCards = () => {
     "blue",
     "pink",
     "dark",
-  ];
+  ]
 
   return (
     <>
@@ -284,11 +284,11 @@ const ColoredCards = () => {
               </Card.Body>
             </Card>
           </Col>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
 const ColoredTextCards = ({ color, name }: { color: string; name: string }) => {
   return (
@@ -301,8 +301,8 @@ const ColoredTextCards = ({ color, name }: { color: string; name: string }) => {
         </Card.Text>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const BorderdCards = () => {
   const colors = [
@@ -318,7 +318,7 @@ const BorderdCards = () => {
       variant: "danger",
       name: "Danger",
     },
-  ];
+  ]
 
   return (
     <>
@@ -346,7 +346,7 @@ const BorderdCards = () => {
               </Card.Body>
             </Card>
           </Col>
-        );
+        )
       })}
       {(colors || []).map((item, index) => {
         return (
@@ -373,11 +373,11 @@ const BorderdCards = () => {
               </Card.Body>
             </Card>
           </Col>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
 const HorizontalCards = () => {
   return (
@@ -428,8 +428,8 @@ const HorizontalCards = () => {
         </Card>
       </Col>
     </>
-  );
-};
+  )
+}
 
 const CardWithGroup = ({ item }: { item: CardGroupDetailsTypes }) => {
   return (
@@ -443,8 +443,8 @@ const CardWithGroup = ({ item }: { item: CardGroupDetailsTypes }) => {
         </Card.Text>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
 const CardsWithNavigation = ({ variant }: { variant: "tabs" | "pills" }) => {
   return (
@@ -479,8 +479,8 @@ const CardsWithNavigation = ({ variant }: { variant: "tabs" | "pills" }) => {
         </Card.Body>
       </Card>
     </>
-  );
-};
+  )
+}
 
 const GridCards = () => {
   return (
@@ -581,8 +581,8 @@ const GridCards = () => {
         </Card>
       </Col>
     </>
-  );
-};
+  )
+}
 
 const Cards = () => {
   const CardGroupDetails: CardGroupDetailsTypes[] = [
@@ -607,7 +607,7 @@ const Cards = () => {
       text: "This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.",
       subtext: "Last updated 3 mins ago",
     },
-  ];
+  ]
 
   return (
     <React.Fragment>
@@ -710,7 +710,7 @@ const Cards = () => {
 
           <CardGroup>
             {(CardGroupDetails || []).map((item, index) => {
-              return <CardWithGroup item={item} key={index} />;
+              return <CardWithGroup item={item} key={index} />
             })}
           </CardGroup>
         </Col>
@@ -758,7 +758,7 @@ const Cards = () => {
         </Col>
       </Row>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Cards;
+export default Cards

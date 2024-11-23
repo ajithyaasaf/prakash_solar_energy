@@ -1,26 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Dropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import SimpleBar from "simplebar-react";
+import React, { useEffect, useRef, useState } from "react"
+import { Dropdown } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import SimpleBar from "simplebar-react"
 
-import { getMenuItems } from "../helpers/menu";
+import { getMenuItems } from "../helpers/menu"
 
 // store
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { useSelector } from "react-redux"
+import { RootState } from "../redux/store"
 
 // constants
-import { LayoutTypes } from "../constants/layout";
+import { LayoutTypes } from "../constants/layout"
 
 // components
-import AppMenu from "./Menu";
+import AppMenu from "./Menu"
 
-import profileImg from "../assets/images/users/user-1.jpg";
-import logoSm from "../assets/images/logo-sm.png";
-import logoDark from "../assets/images/logo-dark.png";
-import logoDark2 from "../assets/images/logo-dark-2.png";
-import logoLight from "../assets/images/logo-light.png";
-import logoLight2 from "../assets/images/logo-light-2.png";
+import profileImg from "../assets/images/users/user-1.jpg"
+import logoSm from "../assets/images/logo-sm.png"
+import logoDark from "../assets/images/logo-dark.png"
+import logoDark2 from "../assets/images/logo-dark-2.png"
+import logoLight from "../assets/images/logo-light.png"
+import logoLight2 from "../assets/images/logo-light-2.png"
 
 /* user box */
 const UserBox = () => {
@@ -46,16 +46,16 @@ const UserBox = () => {
       icon: "fe-log-out",
       redirectTo: "/auth/logout",
     },
-  ];
+  ]
 
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
 
   /*
    * toggle dropdown
    */
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+    setDropdownOpen(!dropdownOpen)
+  }
 
   return (
     <div className="user-box text-center">
@@ -86,15 +86,15 @@ const UserBox = () => {
                   <i className={`${item.icon} me-1`}></i>
                   <span>{item.label}</span>
                 </Link>
-              );
+              )
             })}
           </div>
         </Dropdown.Menu>
       </Dropdown>
       <p className="text-muted">Admin Head</p>
     </div>
-  );
-};
+  )
+}
 
 /* sidebar content */
 const SideBarContent = () => {
@@ -108,21 +108,21 @@ const SideBarContent = () => {
 
       <div className="clearfix" />
     </>
-  );
-};
+  )
+}
 
 interface LeftSidebarProps {
-  isCondensed: boolean;
-  hideLogo?: boolean;
+  isCondensed: boolean
+  hideLogo?: boolean
 }
 
 const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
-  const menuNodeRef: any = useRef(null);
+  const menuNodeRef: any = useRef(null)
 
   const { layoutType } = useSelector((state: RootState) => ({
     layoutType: state.Layout.layoutType,
     leftSideBarType: state.Layout.leftSideBarType,
-  }));
+  }))
 
   /**
    * Handle the click anywhere in doc
@@ -133,20 +133,20 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
       menuNodeRef.current &&
       menuNodeRef.current.contains(e.target)
     )
-      return;
+      return
     // else hide the menubar
     if (document.body) {
-      document.body.classList.remove("sidebar-enable");
+      document.body.classList.remove("sidebar-enable")
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleOtherClick, false);
+    document.addEventListener("mousedown", handleOtherClick, false)
 
     return () => {
-      document.removeEventListener("mousedown", handleOtherClick, false);
-    };
-  }, []);
+      document.removeEventListener("mousedown", handleOtherClick, false)
+    }
+  }, [])
 
   return (
     <React.Fragment>
@@ -189,18 +189,18 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
         )}
 
         {!isCondensed && (
-          <SimpleBar className="scrollbar show h-100" scrollbarMaxSize={320} >
+          <SimpleBar className="scrollbar show h-100" scrollbarMaxSize={320}>
             <SideBarContent />
           </SimpleBar>
         )}
         {isCondensed && <SideBarContent />}
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
 LeftSidebar.defaultProps = {
   isCondensed: false,
-};
+}
 
-export default LeftSidebar;
+export default LeftSidebar
