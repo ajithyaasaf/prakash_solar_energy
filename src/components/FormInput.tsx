@@ -1,17 +1,17 @@
-import React, { useState, InputHTMLAttributes } from "react";
-import { Form, InputGroup } from "react-bootstrap";
-import classNames from "classnames";
+import React, { useState, InputHTMLAttributes } from "react"
+import { Form, InputGroup } from "react-bootstrap"
+import classNames from "classnames"
 
-import { FieldErrors, Control } from "react-hook-form";
+import { FieldErrors, Control } from "react-hook-form"
 
 interface PasswordInputProps {
-  name: string;
-  placeholder?: string;
-  refCallback?: any;
-  errors: FieldErrors;
-  control?: Control<any>;
-  register?: any;
-  className?: string;
+  name: string
+  placeholder?: string
+  refCallback?: any
+  errors: FieldErrors
+  control?: Control<any>
+  register?: any
+  className?: string
 }
 
 /* Password Input */
@@ -24,7 +24,7 @@ const PasswordInput = ({
   register,
   className,
 }: PasswordInputProps) => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false)
 
   return (
     <>
@@ -36,7 +36,7 @@ const PasswordInput = ({
           id={name}
           as="input"
           ref={(r: HTMLInputElement) => {
-            if (refCallback) refCallback(r);
+            if (refCallback) refCallback(r)
           }}
           className={className}
           isInvalid={errors && errors[name] ? true : false}
@@ -52,29 +52,29 @@ const PasswordInput = ({
           <span
             className="password-eye"
             onClick={() => {
-              setShowPassword(!showPassword);
+              setShowPassword(!showPassword)
             }}
           ></span>
         </div>
       </InputGroup>
     </>
-  );
-};
+  )
+}
 
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  type?: string;
-  name: string;
-  placeholder?: string;
-  register?: any;
-  errors?: FieldErrors;
-  control?: Control<any>;
-  className?: string;
-  labelClassName?: string;
-  containerClass?: string;
-  refCallback?: any;
-  children?: any;
-  rows?: string;
+  label?: string
+  type?: string
+  name: string
+  placeholder?: string
+  register?: any
+  errors?: FieldErrors
+  control?: Control<any>
+  className?: string
+  labelClassName?: string
+  containerClass?: string
+  refCallback?: any
+  children?: any
+  rows?: string
 }
 
 const FormInput = ({
@@ -95,7 +95,7 @@ const FormInput = ({
 }: FormInputProps) => {
   // handle input type
   const comp =
-    type === "textarea" ? "textarea" : type === "select" ? "select" : "input";
+    type === "textarea" ? "textarea" : type === "select" ? "select" : "input"
 
   return (
     <>
@@ -147,7 +147,7 @@ const FormInput = ({
                       name={name}
                       id={name}
                       ref={(r: HTMLInputElement) => {
-                        if (refCallback) refCallback(r);
+                        if (refCallback) refCallback(r)
                       }}
                       className={className}
                       isInvalid={errors && errors[name] ? true : false}
@@ -175,7 +175,7 @@ const FormInput = ({
                     id={name}
                     as={comp}
                     ref={(r: HTMLInputElement) => {
-                      if (refCallback) refCallback(r);
+                      if (refCallback) refCallback(r)
                     }}
                     className={className}
                     isInvalid={errors && errors[name] ? true : false}
@@ -199,7 +199,7 @@ const FormInput = ({
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default FormInput;
+export default FormInput

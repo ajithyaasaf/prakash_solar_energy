@@ -1,0 +1,62 @@
+.invoice-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.customer-info,
+.project-details,
+.summary,
+.notes,
+.closing-message {
+  margin-bottom: 20px;
+}
+
+.items-table,
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.items-table th,
+.items-table td,
+.payment-table th,
+.payment-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.print-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #0056b3;
+}
+
+/* Print Optimizations */
+@media print {
+  .print-button {
+    display: none;
+  }
+
+  .invoice-container {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}

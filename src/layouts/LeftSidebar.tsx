@@ -164,8 +164,8 @@ const LeftSidebar = ({ isCondensed, hideLogo }: LeftSidebarProps) => {
                       ? logoDark2
                       : logoDark
                   }
-                  alt=""
-                  height="20"
+                  alt="Prakash Green energy logo"
+                  height="55"
                 />
               </span>
             </Link>

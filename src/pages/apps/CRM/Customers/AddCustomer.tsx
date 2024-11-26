@@ -1,15 +1,15 @@
-import React from "react";
-import { Modal, Button } from "react-bootstrap";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import React from "react"
+import { Modal, Button } from "react-bootstrap"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
 
 // components
-import { VerticalForm, FormInput } from "../../../../components/";
+import { VerticalForm, FormInput } from "../../../../components/"
 
 interface AddCustomerProps {
-  show: boolean;
-  onHide: () => void;
-  onSubmit: (value: any) => void;
+  show: boolean
+  onHide: () => void
+  onSubmit: (value: any) => void
 }
 
 const AddCustomer = ({ show, onHide, onSubmit }: AddCustomerProps) => {
@@ -29,7 +29,7 @@ const AddCustomer = ({ show, onHide, onSubmit }: AddCustomerProps) => {
         .matches(/^\d{10}$/, "Phone number is not valid"),
       location: yup.string().required("Please enter location"),
     })
-  );
+  )
 
   return (
     <>
@@ -93,7 +93,7 @@ const AddCustomer = ({ show, onHide, onSubmit }: AddCustomerProps) => {
         </Modal.Body>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default AddCustomer;
+export default AddCustomer

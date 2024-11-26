@@ -31,7 +31,7 @@ const Dashboard1 = () => {
           <div className="page-title-box">
             <div className="page-title-right">
               <form className="d-flex align-items-center mb-3">
-                <div className="input-group input-group-sm">
+                {/*  <div className="input-group input-group-sm">
                   <HyperDatepicker
                     value={selectedDate}
                     inputClass="border"
@@ -39,13 +39,13 @@ const Dashboard1 = () => {
                       onDateChange(date)
                     }}
                   />
-                </div>
-                <button className="btn btn-blue btn-sm ms-2">
+                </div> 
+                    <button className="btn btn-blue btn-sm ms-2">
                   <i className="mdi mdi-autorenew"></i>
                 </button>
                 <button className="btn btn-blue btn-sm ms-1">
                   <i className="mdi mdi-filter-variant"></i>
-                </button>
+                </button> */}
               </form>
             </div>
             <h4 className="page-title">Dashboard</h4>

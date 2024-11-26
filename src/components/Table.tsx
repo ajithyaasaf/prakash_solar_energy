@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, forwardRef, useState } from "react";
+import React, { useRef, useEffect, forwardRef, useState } from "react"
 import {
   useTable,
   useSortBy,
@@ -7,140 +7,151 @@ import {
   useGlobalFilter,
   useAsyncDebounce,
   useExpanded,
-} from "react-table";
-import classNames from "classnames";
+} from "react-table"
+import classNames from "classnames"
 
 // components
-import Pagination from "./Pagination";
+import Pagination from "./Pagination"
 
+// Global filter for search functionality
 interface GlobalFilterProps {
-  preGlobalFilteredRows: any;
-  globalFilter: any;
-  setGlobalFilter: any;
-  searchBoxClass: any;
+  preGlobalFilteredRows: any
+  globalFilter: any
+  setGlobalFilter: any
+  searchBoxClass: any
 }
 
-// Define a default UI for filtering
 const GlobalFilter = ({
   preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
   searchBoxClass,
 }: GlobalFilterProps) => {
-  const count = preGlobalFilteredRows.length;
-  const [value, setValue] = useState<any>(globalFilter);
+  const count = preGlobalFilteredRows.length
+  const [value, setValue] = useState<any>(globalFilter)
   const onChange = useAsyncDebounce((value) => {
-    setGlobalFilter(value || undefined);
-  }, 200);
+    setGlobalFilter(value || undefined)
+  }, 200)
 
   return (
     <div className={classNames(searchBoxClass)}>
       <span className="d-flex align-items-center">
-        Search :{" "}
+        Search:{" "}
         <input
           type="search"
           value={value || ""}
           onChange={(e: any) => {
-            setValue(e.target.value);
-            onChange(e.target.value);
+            setValue(e.target.value)
+            onChange(e.target.value)
           }}
           placeholder={`${count} records...`}
           className="form-control w-auto ms-1"
         />
       </span>
     </div>
-  );
-};
+  )
+}
 
+// Checkbox component for row selection
 interface IndeterminateCheckboxProps {
-  indeterminate: any;
-  children?: React.ReactNode;
+  indeterminate: any
+  children?: React.ReactNode
 }
 
 const IndeterminateCheckbox = forwardRef<
   HTMLInputElement,
   IndeterminateCheckboxProps
 >(({ indeterminate, ...rest }, ref) => {
-  const defaultRef = useRef();
-  const resolvedRef: any = ref || defaultRef;
+  const defaultRef = useRef()
+  const resolvedRef: any = ref || defaultRef
 
   useEffect(() => {
-    resolvedRef.current.indeterminate = indeterminate;
-  }, [resolvedRef, indeterminate]);
+    resolvedRef.current.indeterminate = indeterminate
+  }, [resolvedRef, indeterminate])
 
   return (
-    <>
-      <div className="form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          ref={resolvedRef}
-          {...rest}
-        />
-        <label htmlFor="form-check-input" className="form-check-label"></label>
-      </div>
-    </>
-  );
-});
+    <div className="form-check">
+      <input
+        type="checkbox"
+        className="form-check-input"
+        ref={resolvedRef}
+        {...rest}
+      />
+      <label htmlFor="form-check-input" className="form-check-label"></label>
+    </div>
+  )
+})
 
 interface TableProps {
-  isSearchable?: boolean;
-  isSortable?: boolean;
-  pagination?: boolean;
-  isSelectable?: boolean;
-  isExpandable?: boolean;
+  isSearchable?: boolean
+  isSortable?: boolean
+  pagination?: boolean
+  isSelectable?: boolean
+  isExpandable?: boolean
   sizePerPageList?: {
-    text: string;
-    value: number;
-  }[];
+    text: string
+    value: number
+  }[]
   columns: {
-    Header: string;
-    accessor: string;
-    sort?: boolean;
-    Cell?: any;
-    className?: string;
-  }[];
-  data: any[];
-  pageSize?: any;
-  searchBoxClass?: string;
-  tableClass?: string;
-  theadClass?: string;
+    Header: string
+    accessor: string
+    sort?: boolean
+    Cell?: any
+    className?: string
+  }[]
+  data: any[]
+  pageSize?: any
+  searchBoxClass?: string
+  tableClass?: string
+  theadClass?: string
+  onEdit?: (id: any) => void
+  onDelete?: (id: any) => void
 }
 
 const Table = (props: TableProps) => {
-  const isSearchable = props["isSearchable"] || false;
-  const isSortable = props["isSortable"] || false;
-  const pagination = props["pagination"] || false;
-  const isSelectable = props["isSelectable"] || false;
-  const isExpandable = props["isExpandable"] || false;
-  const sizePerPageList = props["sizePerPageList"] || [];
+  const {
+    isSearchable,
+    isSortable,
+    pagination,
+    isSelectable,
+    isExpandable,
+    sizePerPageList,
+    columns,
+    data,
+    pageSize,
+    searchBoxClass,
+    tableClass,
+    theadClass,
+    onEdit,
+    onDelete,
+  } = props
 
-  let otherProps: any = {};
+  let otherProps: any = {}
 
   if (isSearchable) {
-    otherProps["useGlobalFilter"] = useGlobalFilter;
+    otherProps["useGlobalFilter"] = useGlobalFilter
   }
   if (isSortable) {
-    otherProps["useSortBy"] = useSortBy;
+    otherProps["useSortBy"] = useSortBy
   }
   if (isExpandable) {
-    otherProps["useExpanded"] = useExpanded;
+    otherProps["useExpanded"] = useExpanded
   }
   if (pagination) {
-    otherProps["usePagination"] = usePagination;
+    otherProps["usePagination"] = usePagination
   }
   if (isSelectable) {
-    otherProps["useRowSelect"] = useRowSelect;
+    otherProps["useRowSelect"] = useRowSelect
   }
 
   const dataTable = useTable(
     {
-      columns: props["columns"],
-      data: props["data"],
-      initialState: { pageSize: props["pageSize"] || 10 },
+      columns,
+      data,
+      initialState: { pageSize: pageSize || 10 },
     },
     otherProps.hasOwnProperty("useGlobalFilter") &&
-    otherProps["useGlobalFilter"],
+      otherProps["useGlobalFilter"],
     otherProps.hasOwnProperty("useSortBy") && otherProps["useSortBy"],
     otherProps.hasOwnProperty("useExpanded") && otherProps["useExpanded"],
     otherProps.hasOwnProperty("usePagination") && otherProps["usePagination"],
@@ -148,11 +159,8 @@ const Table = (props: TableProps) => {
     (hooks) => {
       isSelectable &&
         hooks.visibleColumns.push((columns: any) => [
-          // Let's make a column for selection
           {
             id: "selection",
-            // The header can use the table's getToggleAllRowsSelectedProps method
-            // to render a checkbox
             Header: ({ getToggleAllPageRowsSelectedProps }: any) => (
               <div>
                 <IndeterminateCheckbox
@@ -160,8 +168,6 @@ const Table = (props: TableProps) => {
                 />
               </div>
             ),
-            // The cell can use the individual row's getToggleRowSelectedProps method
-            // to the render a checkbox
             Cell: ({ row }: any) => (
               <div>
                 <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
@@ -169,14 +175,12 @@ const Table = (props: TableProps) => {
             ),
           },
           ...columns,
-        ]);
+        ])
 
       isExpandable &&
         hooks.visibleColumns.push((columns: any) => [
-          // Let's make a column for selection
           {
-            // Build our expander column
-            id: "expander", // Make sure it has an ID
+            id: "expander",
             Header: ({
               getToggleAllRowsExpandedProps,
               isAllRowsExpanded,
@@ -186,15 +190,10 @@ const Table = (props: TableProps) => {
               </span>
             ),
             Cell: ({ row }) =>
-              // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
-              // to build the toggle for expanding a row
               row.canExpand ? (
                 <span
                   {...row.getToggleRowExpandedProps({
                     style: {
-                      // We can even use the row.depth property
-                      // and paddingLeft to indicate the depth
-                      // of the row
                       paddingLeft: `${row.depth * 2}rem`,
                     },
                   })}
@@ -204,11 +203,11 @@ const Table = (props: TableProps) => {
               ) : null,
           },
           ...columns,
-        ]);
+        ])
     }
-  );
+  )
 
-  let rows = pagination ? dataTable.page : dataTable.rows;
+  let rows = pagination ? dataTable.page : dataTable.rows
 
   return (
     <>
@@ -217,25 +216,24 @@ const Table = (props: TableProps) => {
           preGlobalFilteredRows={dataTable.preGlobalFilteredRows}
           globalFilter={dataTable.state.globalFilter}
           setGlobalFilter={dataTable.setGlobalFilter}
-          searchBoxClass={props["searchBoxClass"]}
+          searchBoxClass={searchBoxClass}
         />
       )}
 
       <div className="table-responsive">
         <table
           {...dataTable.getTableProps()}
-          className={classNames(
-            "table table-centered react-table",
-            props["tableClass"]
-          )}
+          className={classNames("table table-centered react-table", tableClass)}
         >
-          <thead className={props["theadClass"]}>
+          <thead className={theadClass}>
             {(dataTable.headerGroups || []).map((headerGroup: any) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {(headerGroup.headers || []).map((column: any) => (
                   <th
                     {...column.getHeaderProps(
-                      column.sort && column.getSortByToggleProps()
+                      isSortable && column.sort
+                        ? column.getSortByToggleProps()
+                        : undefined
                     )}
                     className={classNames({
                       sorting_desc: column.isSortedDesc === true,
@@ -251,33 +249,52 @@ const Table = (props: TableProps) => {
           </thead>
           <tbody {...dataTable.getTableBodyProps()}>
             {(rows || []).map((row: any, i: number) => {
-              dataTable.prepareRow(row);
+              dataTable.prepareRow(row)
               return (
                 <tr {...row.getRowProps()}>
-                  {(row.cells || []).map((cell: any) => {
-                    return (
-                      <td
-                        {...cell.getCellProps([
-                          {
-                            className: cell.column.className,
-                          },
-                        ])}
+                  {(row.cells || []).map((cell: any) => (
+                    <td
+                      {...cell.getCellProps([
+                        { className: cell.column.className },
+                      ])}
+                    >
+                      {cell.render("Cell")}
+                    </td>
+                  ))}
+                  <td>
+                    {onEdit && (
+                      <button
+                        onClick={() => onEdit(row.original.id)}
+                        className="btn btn-sm btn-link text-primary"
+                        title="Edit"
                       >
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
+                        <i className="fas fa-edit" />
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    {onDelete && (
+                      <button
+                        onClick={() => onDelete(row.original.id)}
+                        className="btn btn-sm btn-link text-danger"
+                        title="Delete"
+                      >
+                        <i className="fas fa-trash-alt" />
+                      </button>
+                    )}
+                  </td>
                 </tr>
-              );
+              )
             })}
           </tbody>
         </table>
       </div>
+
       {pagination && (
         <Pagination tableProps={dataTable} sizePerPageList={sizePerPageList} />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

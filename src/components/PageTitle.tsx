@@ -1,15 +1,15 @@
-import React from "react";
-import { Row, Col, Breadcrumb } from "react-bootstrap";
+import React from "react"
+import { Row, Col, Breadcrumb } from "react-bootstrap"
 
 interface BreadcrumbItems {
-  label: string;
-  path: string;
-  active?: boolean;
+  label: string
+  path: string
+  active?: boolean
 }
 
 interface PageTitleProps {
-  breadCrumbItems: Array<BreadcrumbItems>;
-  title: string;
+  breadCrumbItems: Array<BreadcrumbItems>
+  title: string
 }
 
 /**
@@ -22,7 +22,7 @@ const PageTitle = (props: PageTitleProps) => {
         <div className="page-title-box">
           <div className="page-title-right">
             <Breadcrumb className="m-0">
-              <Breadcrumb.Item href="/">UBold</Breadcrumb.Item>
+              <Breadcrumb.Item href="/">Prakash Green Energy</Breadcrumb.Item>
 
               {(props["breadCrumbItems"] || []).map((item, index) => {
                 return item.active ? (
@@ -33,7 +33,7 @@ const PageTitle = (props: PageTitleProps) => {
                   <Breadcrumb.Item key={index} href={item.path}>
                     {item.label}
                   </Breadcrumb.Item>
-                );
+                )
               })}
             </Breadcrumb>
           </div>
@@ -41,7 +41,7 @@ const PageTitle = (props: PageTitleProps) => {
         </div>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default PageTitle;
+export default PageTitle

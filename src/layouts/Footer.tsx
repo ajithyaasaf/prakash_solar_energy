@@ -1,9 +1,9 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
     <React.Fragment>
@@ -11,22 +11,22 @@ const Footer = () => {
         <div className="container-fluid">
           <Row>
             <Col md={6}>
-              {currentYear} &copy; UBold theme by{" "}
-              <Link to="#">Coderthemes</Link>
+              {currentYear} &copy; Designed and Developed by{" "}
+              <Link to="https://prakashgreenenergy.com/">Godiva Tech</Link>
             </Col>
 
             <Col md={6}>
               <div className="d-none d-md-flex gap-4 align-item-center justify-content-md-end footer-links">
-                <Link to="#">About Us</Link>
+                {/*   <Link to="#">About Us</Link>
                 <Link to="#">Help</Link>
-                <Link to="#">Contact Us</Link>
+                <Link to="#">Contact Us</Link> */}
               </div>
             </Col>
           </Row>
         </div>
       </footer>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

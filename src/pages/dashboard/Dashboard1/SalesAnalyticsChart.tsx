@@ -1,7 +1,7 @@
-import React from "react";
-import Chart from "react-apexcharts";
-import { Card } from "react-bootstrap";
-import { ApexOptions } from "apexcharts";
+import React from "react"
+import Chart from "react-apexcharts"
+import { Card } from "react-bootstrap"
+import { ApexOptions } from "apexcharts"
 
 const SalesAnalyticsChart = () => {
   const apexOpts: ApexOptions = {
@@ -18,7 +18,7 @@ const SalesAnalyticsChart = () => {
         columnWidth: "50%",
       },
     },
-    colors: ["#1abc9c", "#4a81d4"],
+    colors: ["#a4cd35", "#e16d06"],
     dataLabels: {
       enabled: true,
       enabledOnSeries: [1],
@@ -74,7 +74,7 @@ const SalesAnalyticsChart = () => {
         },
       },
     ],
-  };
+  }
 
   const series = [
     {
@@ -87,7 +87,7 @@ const SalesAnalyticsChart = () => {
       type: "line",
       data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16],
     },
-  ];
+  ]
 
   return (
     <>
@@ -95,12 +95,12 @@ const SalesAnalyticsChart = () => {
         <Card.Body>
           <div className="float-end d-none d-md-inline-block">
             <div className="btn-group mb-2">
-              <button type="button" className="btn btn-xs btn-light">
+              {/*   <button type="button" className="btn btn-xs btn-light">
                 Today
               </button>
               <button type="button" className="btn btn-xs btn-light">
                 Weekly
-              </button>
+              </button> */}
               <button type="button" className="btn btn-xs btn-secondary">
                 Monthly
               </button>
@@ -121,7 +121,7 @@ const SalesAnalyticsChart = () => {
         </Card.Body>
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default SalesAnalyticsChart;
+export default SalesAnalyticsChart

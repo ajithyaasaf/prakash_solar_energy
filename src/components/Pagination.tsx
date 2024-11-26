@@ -1,38 +1,36 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
+import React, { useCallback, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import classNames from "classnames"
 
 interface PaginationProps {
-  tableProps: any;
-  sizePerPageList: {
-    text: string;
-    value: number;
-  }[];
+  tableProps: any
+  sizePerPageList?: {
+    text: string
+    value: number
+  }[] // sizePerPageList is now optional
 }
 
-const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
+const Pagination = ({ tableProps, sizePerPageList = [] }: PaginationProps) => {
   /**
    * pagination count , index
    */
-  const [pageCount, setPageCount] = useState<number>(tableProps.pageCount);
-  const [pageIndex, setPageIndex] = useState<number>(
-    tableProps.state.pageIndex
-  );
+  const [pageCount, setPageCount] = useState<number>(tableProps.pageCount)
+  const [pageIndex, setPageIndex] = useState<number>(tableProps.state.pageIndex)
 
   useEffect(() => {
-    setPageCount(tableProps.pageCount);
-    setPageIndex(tableProps.state.pageIndex);
-  }, [tableProps.pageCount, tableProps.state.pageIndex]);
+    setPageCount(tableProps.pageCount)
+    setPageIndex(tableProps.state.pageIndex)
+  }, [tableProps.pageCount, tableProps.state.pageIndex])
 
   /**
    * get filter pages
    */
   const filterPages = useCallback(
     (visiblePages: any, totalPages: number) => {
-      return visiblePages.filter((page: any) => page <= pageCount);
+      return visiblePages.filter((page: any) => page <= pageCount)
     },
     [pageCount]
-  );
+  )
 
   /**
    * handle visible pages
@@ -40,19 +38,19 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
   const getVisiblePages = useCallback(
     (page: number | null, total: number) => {
       if (total < 7) {
-        return filterPages([1, 2, 3, 4, 5, 6], total);
+        return filterPages([1, 2, 3, 4, 5, 6], total)
       } else {
         if (page! % 5 >= 0 && page! > 4 && page! + 2 < total) {
-          return [1, page! - 1, page!, page! + 1, total];
+          return [1, page! - 1, page!, page! + 1, total]
         } else if (page! % 5 >= 0 && page! > 4 && page! + 2 >= total) {
-          return [1, total - 3, total - 2, total - 1, total];
+          return [1, total - 3, total - 2, total - 1, total]
         } else {
-          return [1, 2, 3, 4, 5, total];
+          return [1, 2, 3, 4, 5, total]
         }
       }
     },
     [filterPages]
-  );
+  )
 
   /**
    * handle page change
@@ -60,27 +58,27 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
    * @returns
    */
   const changePage = (page: number) => {
-    const activePage = pageIndex + 1;
+    const activePage = pageIndex + 1
 
     if (page === activePage) {
-      return;
+      return
     }
 
-    const visiblePages = getVisiblePages(page, pageCount);
-    setVisiblePages(filterPages(visiblePages, pageCount));
+    const visiblePages = getVisiblePages(page, pageCount)
+    setVisiblePages(filterPages(visiblePages, pageCount))
 
-    tableProps.gotoPage(page - 1);
-  };
+    tableProps.gotoPage(page - 1)
+  }
 
   useEffect(() => {
-    const visiblePages = getVisiblePages(null, pageCount);
-    setVisiblePages(visiblePages);
-  }, [pageCount, getVisiblePages]);
+    const visiblePages = getVisiblePages(null, pageCount)
+    setVisiblePages(visiblePages)
+  }, [pageCount, getVisiblePages])
 
   const [visiblePages, setVisiblePages] = useState<number[]>(
     getVisiblePages(null, pageCount)
-  );
-  const activePage: number = pageIndex + 1;
+  )
+  const activePage: number = pageIndex + 1
 
   return (
     <>
@@ -91,17 +89,15 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
             <select
               value={tableProps.state.pageSize}
               onChange={(e: any) => {
-                tableProps.setPageSize(Number(e.target.value));
+                tableProps.setPageSize(Number(e.target.value))
               }}
               className="form-select d-inline-block w-auto"
             >
-              {(sizePerPageList || []).map((pageSize, index) => {
-                return (
-                  <option key={index} value={pageSize.value}>
-                    {pageSize.text}
-                  </option>
-                );
-              })}
+              {(sizePerPageList || []).map((pageSize, index) => (
+                <option key={index} value={pageSize.value}>
+                  {pageSize.text}
+                </option>
+              ))}
             </select>
           </div>
         )}
@@ -120,9 +116,9 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
             value={pageIndex + 1}
             min="1"
             onChange={(e: any) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              tableProps.gotoPage(page);
-              setPageIndex(tableProps.state.pageIndex);
+              const page = e.target.value ? Number(e.target.value) - 1 : 0
+              tableProps.gotoPage(page)
+              setPageIndex(tableProps.state.pageIndex)
             }}
             className="form-control w-25 ms-1 d-inline-block"
           />
@@ -135,8 +131,8 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
               disabled: activePage === 1,
             })}
             onClick={() => {
-              if (activePage === 1) return;
-              changePage(activePage - 1);
+              if (activePage === 1) return
+              changePage(activePage - 1)
             }}
           >
             <Link to="#" className="page-link">
@@ -184,7 +180,7 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
                   {page}
                 </Link>
               </li>
-            );
+            )
           })}
           <li
             key="nextpage"
@@ -192,8 +188,8 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
               disabled: activePage === tableProps.pageCount,
             })}
             onClick={() => {
-              if (activePage === tableProps.pageCount) return;
-              changePage(activePage + 1);
+              if (activePage === tableProps.pageCount) return
+              changePage(activePage + 1)
             }}
           >
             <Link to="#" className="page-link">
@@ -203,7 +199,7 @@ const Pagination = ({ tableProps, sizePerPageList }: PaginationProps) => {
         </ul>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination
