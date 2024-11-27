@@ -289,10 +289,6 @@ const Table = (props: TableProps) => {
           </tbody>
         </table>
       </div>
-
-      {pagination && (
-        <Pagination tableProps={dataTable} sizePerPageList={sizePerPageList} />
-      )}
     </>
   )
 }

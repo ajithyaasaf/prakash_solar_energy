@@ -117,14 +117,14 @@ const MENU_ITEMS: MenuItemTypes[] = [
         label: "Order Details",
         url: "/apps/ecommerce/order/details",
         parentKey: "apps-ecommerce",
-      },
+      },*/
       {
         key: "ecommerce-sellers",
         label: "Sellers",
         url: "/apps/ecommerce/sellers",
         parentKey: "apps-ecommerce",
       },
-      {
+      /* {
         key: "ecommerce-shopping-cart",
         label: "Shopping Cart",
         url: "/apps/ecommerce/shopping-cart",
